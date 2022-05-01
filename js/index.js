@@ -5,6 +5,7 @@ const form = document.querySelector(".modal");
 const plus = document.querySelector(".plus");
 const changeBtn = document.querySelector(".change__item-btn");
 const deleteBtn = document.querySelector(".delete__item-btn");
+const cancelBtn = document.querySelector(".cancel__item-btn");
 
 let nowBoard;
 let valutTitle;
@@ -12,7 +13,11 @@ let valutText;
 let valueColor;
 
 function openForm(e) {
-  if (e.target.tagName != "SPAN" && e.target.classList == "boards__item") {
+  if (
+    e.target.tagName != "SPAN" &&
+    e.target.classList == "boards__item" ||
+    e.target.classList == "list"
+  ) {
     nowBoard = this;
     const textareaTitle = document.querySelector(".textarea-title");
     const textareaText = document.querySelector(".textarea-text");
@@ -42,6 +47,15 @@ function openForm(e) {
 
     color.addEventListener("input", (e) => {
       valueColor = e.target.value;
+    });
+
+    cancelBtn.addEventListener("click", () => {
+      textareaTitle.value = "";
+      textareaText.value = "";
+      valutText = "";
+      valutTitle = "";
+      form.style.display = "none";
+      deleteBtn.style.display = 'none';
     });
 
     textareaTitle.value = "";
@@ -83,7 +97,6 @@ function addTask() {
 
   function changeTask() {
     const changeBtn = document.querySelector(".change__item-btn");
-    const cancelBtn = document.querySelector(".cancel__item-btn");
 
     form.style.display = "flex";
 
@@ -99,18 +112,16 @@ function addTask() {
     });
 
     cancelBtn.addEventListener("click", () => {
-      console.log("стоп");
       textareaTitle.value = "";
       textareaText.value = "";
       valutText = "";
       valutTitle = "";
       form.style.display = "none";
+      deleteBtn.style.display = 'none';
       changeBtn.removeEventListener("click", change);
     });
 
     function change() {
-      console.log("change");
-
       item.style.background = valueColor;
 
       newTitle.textContent = valutTitle;
