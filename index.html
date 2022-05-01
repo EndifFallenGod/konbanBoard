@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="boards">
+        <div class="boards__item">
+          <span contenteditable="true" class="title">Введите название</span>
+          <div class="list">
+            <div class="list__item" draggable="true">
+              <div class="list__title">Заголовок</div>
+              <div class="list__text">Описание</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="plus-container">
+        <img class="plus" src="./img/plus.svg" alt="" />
+      </div>
+    </div>
+    <form class="modal">
+      <div class="form__content">
+        <div class="form">
+          <textarea
+            class="textarea textarea-title"
+            placeholder="Введите название для этой карточки"
+          ></textarea>
+          <textarea
+            class="textarea textarea-text"
+            placeholder="Введите описание для этой карточки"
+          ></textarea>
+          <input class="color" type="color" name="bg" value="#ffff" />
+          <div class="buttons">
+            <button type="submit" class="add__item-btn">
+              Добавить карточку
+            </button>
+            <button class="change__item-btn">Изменить</button>
+            <button class="delete__item-btn">Удалить</button>
+            <button type="submit" class="cancel__item-btn">Отмена</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
